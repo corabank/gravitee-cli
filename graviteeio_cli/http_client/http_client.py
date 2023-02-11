@@ -2,6 +2,7 @@ import requests
 import logging
 from requests import RequestException
 
+from .. import environments
 from graviteeio_cli.exeptions import GraviteeioRequestError, GraviteeioError, AuthenticationError
 
 logger = logging.getLogger("client.HttpClient")
@@ -39,6 +40,7 @@ class HttpClient:
 
         params["proxies"] = self.config.proxies
         params["timeout"] = self.timeout
+        params["verify"] = environments.DEFAULT_SSL_VERIFY
 
         if self.config.get_bearer():
             self.headers["Authorization"] = self.config.get_bearer_header()["Authorization"]
