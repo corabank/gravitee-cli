@@ -20497,7 +20497,7 @@
             "type": "string"
           },
           "configuration": {
-            "type": "string"
+            "type": "object"
           }
         }
       },
